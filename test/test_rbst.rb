@@ -9,7 +9,7 @@ class TestRbST < Test::Unit::TestCase
   
   should "call bare rest2parts when passed no options" do
     converter = RbST.new(@rst_file)
-    converter.expects(:execute).with('python ./test/../lib/rest2parts.py').returns(true)
+    converter.expects(:execute).with('python ./test/../lib/rst2parts.py').returns(true)
     assert converter.convert
   end
   

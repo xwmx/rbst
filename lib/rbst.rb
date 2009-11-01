@@ -13,7 +13,7 @@ class RbST
   end
 
   def convert
-    executable = File.join(File.dirname(__FILE__), 'rest2parts.py')
+    executable = File.join(File.dirname(__FILE__), 'rst2parts.py')
     execute "python #{executable}" + convert_options
   end
   alias_method :to_s, :convert
