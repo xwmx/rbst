@@ -14,18 +14,18 @@ Gem::Specification.new do |s|
   s.email = %q{wmelody@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rst"
+     "README.markdown"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
-     "README.rst",
+     "README.markdown",
      "Rakefile",
      "RbST.gemspec",
      "VERSION",
      "lib/rbst.rb",
-     "lib/rest2parts.py",
+     "lib/rst2parts.py",
      "test/files/test.html",
      "test/files/test.rst",
      "test/test_helper.rb",
