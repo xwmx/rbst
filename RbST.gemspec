@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["William Melody"]
-  s.date = %q{2009-10-31}
-  s.description = %q{A simple Ruby wrapper for processing reStructuredText via Pythons's Docutils}
+  s.date = %q{2009-11-01}
+  s.description = %q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
   s.email = %q{wmelody@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{A simple Ruby wrapper for processing reStructuredText via Pythons's Docutils}
+  s.summary = %q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
   s.test_files = [
     "test/test_helper.rb",
      "test/test_rbst.rb"

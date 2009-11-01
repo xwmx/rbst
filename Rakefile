@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "RbST"
-    gem.summary = %Q{A simple Ruby wrapper for processing reStructuredText via Pythons's Docutils}
-    gem.description = %Q{A simple Ruby wrapper for processing reStructuredText via Pythons's Docutils}
+    gem.summary = %Q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
+    gem.description = %Q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
     gem.email = "wmelody@gmail.com"
     gem.homepage = "http://github.com/autodata/rbst"
     gem.authors = ["William Melody"]
