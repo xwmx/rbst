@@ -1,4 +1,4 @@
-RbST: A simple wrapper to process reStructuredText via Pythons's Docutils.
+RbST: A simple Ruby wrapper for processing reStructuredText via Pythons's Docutils.
 
 RbST
 ====
