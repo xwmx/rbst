@@ -50,6 +50,7 @@ For more information on reStructuredText, see the
 Caveats
 -------
 
+- Docutils is very slow. On my 2.5 GHz Core 2 Duo it takes over half a second to convert the test file to HTML, taking about 0.2s to start up and 0.38s to process the input data.
 -  This has only been tested on \*nix systems.
 -  Python 3 has not been tested.
 
