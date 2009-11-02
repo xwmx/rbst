@@ -9,7 +9,7 @@ class TestRbST < Test::Unit::TestCase
   
   should "call bare rest2parts when passed no options" do
     converter = RbST.new(@rst_file)
-    converter.expects(:execute).with('python ./test/../lib/rst2parts.py').returns(true)
+    converter.expects(:execute).with('python ./test/../lib/rst2parts/rst2html.py').returns(true)
     assert converter.convert
   end
   
@@ -21,14 +21,14 @@ class TestRbST < Test::Unit::TestCase
   should "recognize strip_comments option" do
     html_with_comment = RbST.convert(".. comment")
     assert_equal html_with_comment, %Q{<div class="document">\n<!-- comment -->\n</div>}
-    html_without_comment = RbST.convert(".. comment", :strip_comments)
+    html_without_comment = RbST.convert(".. comment", 'strip-comments')
     assert_equal html_without_comment, %Q{<div class="document">\n</div>}
   end
   
   should "recognize cloak_email_addresses option" do
     html_with_uncloaked_email = RbST.convert("steve@mac.com")
     assert_equal %Q{<div class="document">\n<p><a class="reference external" href="mailto:steve&#64;mac.com">steve&#64;mac.com</a></p>\n</div>}, html_with_uncloaked_email
-    html_with_cloaked_email = RbST.convert("steve@mac.com", :cloak_email_addresses)
+    html_with_cloaked_email = RbST.convert("steve@mac.com", 'cloak-email-addresses')
     assert_equal %Q{<div class="document">\n<p><a class="reference external" href="mailto:steve&#37;&#52;&#48;mac&#46;com">steve<span>&#64;</span>mac<span>&#46;</span>com</a></p>\n</div>}, html_with_cloaked_email
   end
   

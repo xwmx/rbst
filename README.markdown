@@ -27,11 +27,9 @@ You can also use the `#convert` class method:
     puts RbST.convert('/some/file.rst')
 
 When no options are passed, the default behavior converts
-reStructuredText to html. Options supported include
-`:cloak_email_addresses` and `:strip_comments`, either of which can
-be simply included as additional arguments.
+reStructuredText to html using the default settings. Options can be passes as additional arguments.
 
-    puts RbST.convert(".. a comment", :strip_comments) # => '<div class="document">\n</div>'
+    puts RbST.convert(".. a comment", 'strip-comments') # => '<div class="document">\n</div>'
 
 Document parts can also be specified with the `:parts` option.
 
