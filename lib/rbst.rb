@@ -2,38 +2,44 @@ require 'open4'
 
 class RbST
   
+  # Takes a string or file path plus any additional options and converts the input.
   def self.convert(*args)
     new(*args).convert
   end
   
+  # Print LaTeX-Specific Options, General Docutils Options and reStructuredText Parser Options.
   def self.latex_options
     new.print_options(:latex)
   end
   
+  # Print HTML-Specific Options, General Docutils Options and reStructuredText Parser Options.
   def self.html_options
     new.print_options(:html)
   end
-
+  
+  # Takes a string or file path plus any additional options and creates a new converter object.
   def initialize(*args)
     target = args.shift
     @target  = File.exists?(target) ? File.read(target) : target rescue target
     @options = args
   end
 
-  def convert(writer = :html)
+  def convert(writer = :html) # :nodoc:
     execute "python #{RbST.executable(writer)}" + convert_options
   end
   alias_method :to_s, :convert
   
+  # Converts the object's input to HTML.
   def to_html
     convert(:html)
   end
   
+  # Converts the object's input to LaTeX.
   def to_latex
     convert(:latex)
   end
   
-  def print_options(format)
+  def print_options(format) # :nodoc:
     help = execute("python #{RbST.executable(format)} --help")
     help.gsub!(/(\-\-)([A-Za-z0-9]+)([=|\s])/, ':\2\3')
     help.gsub!(/(\-\-)([\w|\-]+)(\n)?[^$|^=|\]]?/, '\'\2\'\3')
