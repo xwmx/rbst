@@ -3,8 +3,12 @@ require 'mocha'
 
 class TestRbST < Test::Unit::TestCase
   def setup
-    @rst_file = File.join(File.dirname(__FILE__), 'files', 'test.rst')
-    @html_file = File.join(File.dirname(__FILE__), 'files', 'test.html')
+    [:rst, :html, :latex].each do |f|
+      instance_variable_set(
+        :"@#{f}_file",
+        File.join(File.dirname(__FILE__), 'files', "test.#{f}")
+      )
+    end
   end
   
   should "call bare rest2parts when passed no options" do
@@ -16,6 +20,11 @@ class TestRbST < Test::Unit::TestCase
   should "convert ReST to html" do
     html = RbST.new(@rst_file).to_html
     assert_equal html, File.read(@html_file)
+  end
+  
+  should "convert ReST to LaTeX" do
+    latex = RbST.new(@rst_file).to_latex
+    assert_equal latex, File.read(@latex_file)
   end
   
   should "recognize strip_comments option" do
