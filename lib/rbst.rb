@@ -39,12 +39,18 @@ class RbST
     convert(:latex)
   end
   
-  def print_options(format) # :nodoc:
+  # Formats and prints the options from the docutils help in the way they'd be specified in RbST: strings, symbols and hashes.
+  def print_options(format)
     help = execute("python #{RbST.executable(format)} --help")
+    # non-hyphenated long options to symbols
     help.gsub!(/(\-\-)([A-Za-z0-9]+)([=|\s])/, ':\2\3')
+    # hyphenated long options to quoted strings
     help.gsub!(/(\-\-)([\w|\-]+)(\n)?[^$|^=|\]]?/, '\'\2\'\3')
+    # equal to hashrocket
     help.gsub!(/\=/, ' => ')
+    # hort options to symbols
     help.gsub!(/([^\w])\-(\w)([^\w])/, '\1:\2\1')
+    # short options with args get a hashrocket
     help.gsub!(/(:\w) </, '\1 => <')
     puts help
   end
