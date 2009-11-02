@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
      "test/test_helper.rb",
      "test/test_rbst.rb"
   ]
-  s.homepage = %q{http://github.com/autodata/rbst}
+  s.homepage = %q{http://rdoc.info/projects/autodata/rbst}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}

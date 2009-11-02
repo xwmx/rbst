@@ -8,7 +8,7 @@ begin
     gem.summary = %Q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
     gem.description = %Q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
     gem.email = "wmelody@gmail.com"
-    gem.homepage = "http://github.com/autodata/rbst"
+    gem.homepage = "http://rdoc.info/projects/autodata/rbst"
     gem.authors = ["William Melody"]
     gem.add_development_dependency "thoughtbot-shoulda"
     gem.add_dependency "open4"
