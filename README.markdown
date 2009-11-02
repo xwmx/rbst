@@ -30,13 +30,15 @@ When no options are passed, the default behavior converts reStructuredText to ht
 
     puts RbST.convert(".. a comment", 'strip-comments') # => '<div class="document">\n</div>'
 
-Options passed as string use hyphens while symbols use underscores. For instance, the above could also be written as `RbST.convert(".. a comment", :strip_comments)`.
+Options passed as string use hyphens while symbols use underscores. For instance, the above could also be written as:
+
+    puts RbST.convert(".. a comment", :strip_comments) # => '<div class="document">\n</div>'
 
 Document parts can also be specified with the `:parts` option.
 
     puts RbST.convert("hello world", :part => :fragment) # => '<p>hello world</p>'
 
-By default, RbST uses the `html_body` part for HTML and the 'whole' part for LaTeX.
+By default, RbST uses the `html_body` part for HTML and the `whole` part for LaTeX.
 
 Available options can be viewed using the `RbST.html_options` and `RbST.latex_options` class methods.
 
