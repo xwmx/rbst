@@ -1,6 +1,6 @@
 import sys
 from docutils.core import publish_parts
-from optparse import OptionParser, OptionGroup
+from optparse import OptionParser
 from docutils.frontend import OptionParser as DocutilsOptionParser
 from docutils.parsers.rst import Parser
 
