@@ -4,7 +4,7 @@ from optparse import OptionParser
 from docutils.frontend import OptionParser as DocutilsOptionParser
 from docutils.parsers.rst import Parser
 
-def transform(writer=None,part=None):
+def transform(writer=None, part=None):
     p = OptionParser(add_help_option=False)
     
     # Collect all the command line options
