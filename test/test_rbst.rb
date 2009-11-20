@@ -27,6 +27,14 @@ class TestRbST < Test::Unit::TestCase
     assert_equal latex, File.read(@latex_file)
   end
   
+  [:html, :latex].each do |f|
+    should "accept options on #to_#{f}" do
+      converter = RbST.new(@rst_file)
+      converter.expects(:execute).with("python ./test/../lib/rst2parts/rst2#{f}.py --raw-enabled").returns(true)
+      assert converter.send("to_#{f}", :raw_enabled)
+    end
+  end
+  
   should "recognize strip_comments option" do
     html_with_comment = RbST.convert(".. comment")
     assert_equal html_with_comment, %Q{<div class="document">\n<!-- comment -->\n</div>}

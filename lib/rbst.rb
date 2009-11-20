@@ -24,19 +24,24 @@ class RbST
     @options = args
   end
 
-  def convert(writer = :html) # :nodoc:
-    execute "python #{RbST.executable(writer)}" + convert_options
+  def convert # :nodoc:
+    @output_format ||= :html
+    execute "python #{RbST.executable(@output_format)}" + convert_options
   end
   alias_method :to_s, :convert
   
   # Converts the object's input to HTML.
-  def to_html
-    convert(:html)
+  def to_html(*args)
+    @output_format = :html
+    @options += args
+    convert
   end
   
   # Converts the object's input to LaTeX.
-  def to_latex
-    convert(:latex)
+  def to_latex(*args)
+    @output_format = :latex
+    @options += args
+    convert
   end
   
   # Formats and prints the options from the docutils help in the way they'd be specified in RbST: strings, symbols and hashes.

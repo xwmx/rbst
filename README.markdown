@@ -22,23 +22,23 @@ RbST is available on [gemcutter](http://gemcutter.org/gems/RbST).
 
 This takes the reStructuredText formatted file and converts it to either HTML or LaTeX. The first argument can be either a file or a string.
 
-You can also use the `#convert` class method:
+You can also use the `convert` class method to output HTML:
 
     puts RbST.convert('/some/file.rst')
 
-When no options are passed, the default behavior converts reStructuredText to html using the default settings. Other arguments are simply converted into command line options, accepting symbols or strings for options without arguments and hashes of strings or symbols for options with arguments.
+Arguments can be passed to `#to_html`, `#to_latex` and `convert` and are simply converted into command line options, accepting symbols or strings for options without arguments and hashes of strings or symbols for options with arguments.
 
-    puts RbST.convert(".. a comment", 'strip-comments')
+    puts RbST.new(".. a comment").to_html('strip-comments')
     # => '<div class="document">\n</div>'
 
 Options passed as string use hyphens while symbols use underscores. For instance, the above could also be written as:
 
-    puts RbST.convert(".. a comment", :strip_comments)
+    puts RbST.new(".. a comment").to_html(:strip_comments)
     # => '<div class="document">\n</div>'
 
 Document parts can also be specified with the `:parts` option.
 
-    puts RbST.convert("hello world", :part => :fragment)
+    puts RbST.new("hello world").to_html(:part => :fragment)
     # => '<p>hello world</p>'
 
 By default, RbST uses the `html_body` part for HTML and the `whole` part for LaTeX.
