@@ -26,7 +26,7 @@ You can also use the `convert` class method to output HTML:
 
     puts RbST.convert('/some/file.rst')
 
-Arguments can be passed to `#to_html`, `#to_latex` `new` or `convert` and are simply converted into command line options, accepting symbols or strings for options without arguments and hashes of strings or symbols for options with arguments.
+Arguments can be passed to `#to_html`, `#to_latex`, `new` or `convert`, accepting symbols or strings for options without arguments and hashes of strings or symbols for options with arguments.
 
     puts RbST.new(".. a comment").to_html('strip-comments')
     # => '<div class="document">\n</div>'
