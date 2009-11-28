@@ -8,8 +8,6 @@ Python 2.3+ is required.
 
 RbST is available on [gemcutter](http://gemcutter.org/gems/RbST).
 
-    gem install gemcutter
-    gem tumble
     gem install RbST
 
 ## Usage
