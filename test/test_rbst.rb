@@ -9,11 +9,12 @@ class TestRbST < Test::Unit::TestCase
         File.join(File.dirname(__FILE__), 'files', "test.#{f}")
       )
     end
+    @rst2parts_path = File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'rst2parts'))
   end
   
   should "call bare rest2parts when passed no options" do
     converter = RbST.new(@rst_file)
-    converter.expects(:execute).with('python ./test/../lib/rst2parts/rst2html.py').returns(true)
+    converter.expects(:execute).with("python #{@rst2parts_path}/rst2html.py").returns(true)
     assert converter.convert
   end
   
@@ -30,7 +31,7 @@ class TestRbST < Test::Unit::TestCase
   [:html, :latex].each do |f|
     should "accept options on #to_#{f}" do
       converter = RbST.new(@rst_file)
-      converter.expects(:execute).with("python ./test/../lib/rst2parts/rst2#{f}.py --raw-enabled").returns(true)
+      converter.expects(:execute).with("python #{@rst2parts_path}/rst2#{f}.py --raw-enabled").returns(true)
       assert converter.send("to_#{f}", :raw_enabled)
     end
   end

@@ -63,7 +63,7 @@ class RbST
 private
   
   def self.executable(writer = :html)
-    File.join(File.dirname(__FILE__), "rst2parts", "rst2#{writer}.py")
+    File.expand_path(File.join(File.dirname(__FILE__), "rst2parts", "rst2#{writer}.py"))
   end
   
   def execute(command)
