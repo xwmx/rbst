@@ -12,7 +12,7 @@ RbST is available on [gemcutter](http://gemcutter.org/gems/RbST).
 
 ## Usage
 
-    require 'RbST'
+    require 'rbst'
     ...
     @html = RbST.new('/some/file.rst').to_html
     # or
