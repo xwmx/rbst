@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{RbST}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["William Melody"]
-  s.date = %q{2009-12-02}
+  s.date = %q{2010-03-29}
   s.description = %q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
   s.email = %q{wmelody@gmail.com}
   s.extra_rdoc_files = [
@@ -35,10 +35,10 @@ Gem::Specification.new do |s|
      "test/test_helper.rb",
      "test/test_rbst.rb"
   ]
-  s.homepage = %q{http://rdoc.info/projects/autodata/rbst}
+  s.homepage = %q{http://rdoc.info/projects/alphabetum/rbst}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
   s.test_files = [
     "test/test_helper.rb",
