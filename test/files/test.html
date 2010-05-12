@@ -175,7 +175,7 @@ used to separate indentation contexts)</td>
 <div class="section" id="inline-markup">
 <h1>Inline Markup</h1>
 <p><em>emphasis</em>; <strong>strong emphasis</strong>; <cite>interpreted text</cite>; <em>interpreted text
-with role</em>; <tt class="docutils literal"><span class="pre">inline</span> <span class="pre">literal</span> <span class="pre">text</span></tt>; standalone hyperlink,
+with role</em>; <tt class="docutils literal">inline literal text</tt>; standalone hyperlink,
 <a class="reference external" href="http://docutils.sourceforge.net">http://docutils.sourceforge.net</a>; named reference, <a class="reference external" href="http://docutils.sf.net/rst.html">reStructuredText</a>;
 <a class="reference external" href="http://docutils.sf.net/docs/ref/rst/restructuredtext.html">anonymous reference</a>; footnote reference, <a class="footnote-reference" href="#id1" id="id3">[1]</a>; citation reference,
 <a class="citation-reference" href="#cit2002" id="id4">[CIT2002]</a>; like an inline directive; <span class="target" id="inline-internal-target">inline internal target</span>.</p>
@@ -199,25 +199,25 @@ with role</em>; <tt class="docutils literal"><span class="pre">inline</span> <sp
 &quot;error&quot;, &quot;hint&quot;, &quot;important&quot;, &quot;note&quot;, &quot;tip&quot;, &quot;warning&quot;</td>
 </tr>
 <tr><td>admonition</td>
-<td>Generic titled admonition: <tt class="docutils literal"><span class="pre">..</span> <span class="pre">admonition::</span> <span class="pre">By</span> <span class="pre">The</span> <span class="pre">Way</span></tt></td>
+<td>Generic titled admonition: <tt class="docutils literal">.. admonition:: By The Way</tt></td>
 </tr>
 <tr><td>image</td>
-<td><tt class="docutils literal"><span class="pre">..</span> <span class="pre">image::</span> <span class="pre">picture.png</span></tt>; many options possible</td>
+<td><tt class="docutils literal">.. image:: picture.png</tt>; many options possible</td>
 </tr>
 <tr><td>figure</td>
 <td>Like &quot;image&quot;, but with optional caption and legend</td>
 </tr>
 <tr><td>topic</td>
-<td><tt class="docutils literal"><span class="pre">..</span> <span class="pre">topic::</span> <span class="pre">Title</span></tt>; like a mini section</td>
+<td><tt class="docutils literal">.. topic:: Title</tt>; like a mini section</td>
 </tr>
 <tr><td>sidebar</td>
-<td><tt class="docutils literal"><span class="pre">..</span> <span class="pre">sidebar::</span> <span class="pre">Title</span></tt>; like a mini parallel document</td>
+<td><tt class="docutils literal">.. sidebar:: Title</tt>; like a mini parallel document</td>
 </tr>
 <tr><td>parsed-literal</td>
 <td>A literal block with parsed inline markup</td>
 </tr>
 <tr><td>rubric</td>
-<td><tt class="docutils literal"><span class="pre">..</span> <span class="pre">rubric::</span> <span class="pre">Informal</span> <span class="pre">Heading</span></tt></td>
+<td><tt class="docutils literal">.. rubric:: Informal Heading</tt></td>
 </tr>
 <tr><td>epigraph</td>
 <td>Block quote with class=&quot;epigraph&quot;</td>
@@ -306,7 +306,7 @@ with role</em>; <tt class="docutils literal"><span class="pre">inline</span> <sp
 <td>Equivalent to <em>emphasis</em></td>
 </tr>
 <tr><td>literal</td>
-<td>Equivalent to <tt class="docutils literal"><span class="pre">literal</span></tt> but processes backslash escapes</td>
+<td>Equivalent to <tt class="docutils literal">literal</tt> but processes backslash escapes</td>
 </tr>
 <tr><td>PEP</td>
 <td>Reference to a numbered Python Enhancement Proposal</td>
