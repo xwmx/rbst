@@ -18,6 +18,26 @@ class TestRbST < Test::Unit::TestCase
     assert converter.convert
   end
   
+  should "convert with custom executable" do
+    executables = {:html => "/some/path/2html.py"}
+    default_executables = RbST.executables
+    RbST.executables = executables
+    converter = RbST.new(@file)
+    converter.expects(:execute).with("python #{executables[:html]}").returns(true)
+    assert converter.to_html
+    RbST.executables = default_executables
+  end
+  
+  should "raise error when passed bad executable key" do
+    executables = {:markdown => "/some/path/2markdown.py"}
+    begin
+      RbST.executables = executables
+      flunk
+    rescue ArgumentError
+      assert true
+    end
+  end
+  
   should "convert ReST to html" do
     html = RbST.new(@rst_file).to_html
     assert_equal html, File.read(@html_file)

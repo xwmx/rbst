@@ -2,6 +2,12 @@ require 'open3'
 
 class RbST
   
+  @@executable_path = File.expand_path(File.join(File.dirname(__FILE__), "rst2parts"))
+  @@executables = {
+    :html  => File.join(@@executable_path, "rst2html.py"),
+    :latex => File.join(@@executable_path, "rst2latex.py")
+  }
+  
   # Takes a string or file path plus any additional options and converts the input.
   def self.convert(*args)
     new(*args).convert
@@ -17,6 +23,18 @@ class RbST
     new.print_options(:html)
   end
   
+  # Specify custom executables to use instead of the default rst2latex.py and
+  # rst2html.py scripts. Takes a hash with two possible keys, :html and :latex,
+  # which should contain a full path to the alternative executable.
+  def self.executables=(exec_paths = {})
+    if exec_paths.empty? || (exec_paths.keys & [:html, :latex]).empty?
+      raise ArgumentError, "Custom executable format must be :html or :latex"
+    end
+    @@executables = @@executables.merge(exec_paths)
+  end
+  # Return the executable hash.
+  def self.executables; @@executables end
+  
   # Takes a string or file path plus any additional options and creates a new converter object.
   def initialize(*args)
     target = args.shift
@@ -26,7 +44,7 @@ class RbST
 
   def convert # :nodoc:
     @output_format ||= :html
-    execute "python #{RbST.executable(@output_format)}" + convert_options
+    execute "python #{@@executables[@output_format]}" + convert_options
   end
   alias_method :to_s, :convert
   
@@ -46,7 +64,7 @@ class RbST
   
   # Formats and prints the options from the docutils help in the way they'd be specified in RbST: strings, symbols and hashes.
   def print_options(format)
-    help = execute("python #{RbST.executable(format)} --help")
+    help = execute("python #{@@executables[format]} --help")
     # non-hyphenated long options to symbols
     help.gsub!(/(\-\-)([A-Za-z0-9]+)([=|\s])/, ':\2\3')
     # hyphenated long options to quoted strings
@@ -60,11 +78,7 @@ class RbST
     puts help
   end
   
-private
-  
-  def self.executable(writer = :html)
-    File.expand_path(File.join(File.dirname(__FILE__), "rst2parts", "rst2#{writer}.py"))
-  end
+protected
   
   def execute(command)
     output = ''

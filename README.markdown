@@ -43,6 +43,12 @@ By default, RbST uses the `html_body` part for HTML and the `whole` part for LaT
 
 Available options can be viewed using the `RbST.html_options` and `RbST.latex_options` class methods.
 
+You might run into a situation where you want to specify a custom script for processing one or both of the output formats. If so, just specify the full path to the custom script for the format by passing a hash to the `RbST.executables=` method:
+
+    RbST.executables = {:html => "/some/other/path/2html.py"}
+    RbST.new("something").to_html  # uses custom executable for outputting html
+    RbST.new("something else").to_latex # uses default executable for latex since a custom one wasn't specified
+
 For more information on reStructuredText, see the
 [ReST documentation](http://docutils.sourceforge.net/rst.html).
 
