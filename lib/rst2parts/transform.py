@@ -29,8 +29,6 @@ def transform(writer=None, part=None):
     else:
         content = sys.stdin.read()
     
-    content = content.decode(
-
     parts = publish_parts(
         source=content,
         settings_overrides=settings,
