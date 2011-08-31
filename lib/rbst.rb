@@ -1,4 +1,4 @@
-require 'open3'
+
 
 class RbST
   
@@ -82,10 +82,10 @@ protected
   
   def execute(command)
     output = ''
-    Open3::popen3(command) do |stdin, stdout, stderr| 
-      stdin.puts @target 
-      stdin.close
-      output = stdout.read.strip 
+    IO.popen(command, "w+") do |f| 
+      f.puts @target 
+      f.close_write
+      output = f.read
     end
     output
   end
