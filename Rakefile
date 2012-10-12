@@ -1,22 +1,29 @@
+# encoding: utf-8
+
 require 'rubygems'
+require 'bundler'
+begin
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
+end
 require 'rake'
 
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "RbST"
-    gem.summary = %Q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
-    gem.description = %Q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
-    gem.email = "wmelody@gmail.com"
-    gem.homepage = "http://rdoc.info/projects/alphabetum/rbst"
-    gem.authors = ["William Melody"]
-    gem.add_development_dependency "shoulda"
-    gem.add_development_dependency "mocha"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-  end
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
+require 'jeweler'
+Jeweler::Tasks.new do |gem|
+  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
+  gem.name = "RbST"
+  gem.homepage = "http://github.com/alphabetum/rbst"
+  gem.license = "MIT"
+  gem.summary = %Q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
+  gem.description = %Q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
+  gem.email = "hi@williammelody.com"
+  gem.authors = ["William Melody"]
+  # dependencies defined in Gemfile
 end
+Jeweler::RubygemsDotOrgTasks.new
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
@@ -25,30 +32,11 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/test_*.rb'
-    test.verbose = true
-  end
-rescue LoadError
-  task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
-  end
-end
-
-task :test => :check_dependencies
-
 task :default => :test
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
-  if File.exist?('VERSION')
-    version = File.read('VERSION')
-  else
-    version = ""
-  end
+  version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "RbST #{version}"
