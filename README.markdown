@@ -6,7 +6,7 @@ A simple Ruby wrapper for processing reStructuredText via Python's Docutils.
 
 Python 2.3+ is required.
 
-RbST is available on [gemcutter](http://gemcutter.org/gems/RbST).
+RbST is available on [RubyGems.org](http://gemcutter.org/gems/RbST).
 
     gem install RbST
 
@@ -68,4 +68,4 @@ For more information on reStructuredText, see the
 
 ## Copyright
 
-Copyright (c) 2009 William Melody. See LICENSE for details.
+Copyright (c) 2009-2012 William Melody. See LICENSE for details.
