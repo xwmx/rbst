@@ -36,5 +36,5 @@ def transform(writer=None, part=None):
     )
     
     if opts.part in parts:
-        return parts[opts.part]
+        return parts[opts.part].encode(parts["encoding"])
     return ''
