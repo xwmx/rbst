@@ -58,23 +58,23 @@ class TestRbST < Test::Unit::TestCase
   
   should "recognize strip_comments option" do
     html_with_comment = RbST.convert(".. comment")
-    assert_equal html_with_comment, %Q{<div class="document">\n<!-- comment -->\n</div>}
+    assert_equal html_with_comment, %Q{<div class=\"document\">\n<!-- comment -->\n</div>\n}
     html_without_comment = RbST.convert(".. comment", 'strip-comments')
-    assert_equal html_without_comment, %Q{<div class="document">\n</div>}
+    assert_equal html_without_comment, %Q{<div class=\"document\">\n</div>\n}
   end
   
   should "recognize cloak_email_addresses option" do
     html_with_uncloaked_email = RbST.convert("steve@mac.com")
-    assert_equal %Q{<div class="document">\n<p><a class="reference external" href="mailto:steve&#64;mac.com">steve&#64;mac.com</a></p>\n</div>}, html_with_uncloaked_email
+    assert_equal %Q{<div class=\"document\">\n<p><a class=\"reference external\" href=\"mailto:steve&#64;mac.com\">steve&#64;mac.com</a></p>\n</div>\n}, html_with_uncloaked_email
     html_with_cloaked_email = RbST.convert("steve@mac.com", 'cloak-email-addresses')
-    assert_equal %Q{<div class="document">\n<p><a class="reference external" href="mailto:steve&#37;&#52;&#48;mac&#46;com">steve<span>&#64;</span>mac<span>&#46;</span>com</a></p>\n</div>}, html_with_cloaked_email
+    assert_equal %Q{<div class=\"document\">\n<p><a class=\"reference external\" href=\"mailto:steve&#37;&#52;&#48;mac&#46;com\">steve<span>&#64;</span>mac<span>&#46;</span>com</a></p>\n</div>\n}, html_with_cloaked_email
   end
   
   should "recognize part option" do
     html_body = RbST.convert("hello world", :part => :html_body)
-    assert_equal %Q{<div class="document">\n<p>hello world</p>\n</div>}, html_body
+    assert_equal %Q{<div class=\"document\">\n<p>hello world</p>\n</div>\n}, html_body
     fragment = RbST.convert("hello world", :part => :fragment)
-    assert_equal %Q{<p>hello world</p>}, fragment
+    assert_equal %Q{<p>hello world</p>\n}, fragment
   end
   
 end
