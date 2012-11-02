@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'helper'
 require 'mocha'
 
@@ -75,6 +77,11 @@ class TestRbST < Test::Unit::TestCase
     assert_equal %Q{<div class=\"document\">\n<p>hello world</p>\n</div>\n}, html_body
     fragment = RbST.convert("hello world", :part => :fragment)
     assert_equal %Q{<p>hello world</p>\n}, fragment
+  end
+
+  should "convert unicode" do
+    output = RbST.convert("Hello ☃", :part => :fragment)
+    assert_equal %Q{<p>Hello ☃</p>\n}, output
   end
   
 end
