@@ -24,7 +24,6 @@ Gem::Specification.new do |s|
     "README.markdown",
     "Rakefile",
     "RbST.gemspec",
-    "VERSION",
     "lib/rbst.rb",
     "lib/rst2parts/__init__.py",
     "lib/rst2parts/rst2html.py",
