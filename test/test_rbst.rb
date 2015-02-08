@@ -51,16 +51,16 @@ class TestRbST < Test::Unit::TestCase
   should "convert ReST to html" do
     html = RbST.new(@rst_file).to_html
     assert_equal(
-      html,
-      File.read(@html_file)
+      File.read(@html_file),
+      html
     )
   end
 
   should "convert ReST to LaTeX" do
     latex = RbST.new(@rst_file).to_latex
     assert_equal(
-      latex,
-      File.read(@latex_file)
+      File.read(@latex_file),
+      latex
     )
   end
 
