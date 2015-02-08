@@ -115,17 +115,19 @@ class TestRbST < Test::Unit::TestCase
   end
 
   should "convert to html with unicode" do
-    output = RbST.new("Hello ☃").to_html(:part => :fragment)
+    test_string = "Hello ☃".force_encoding("utf-8")
+    output = RbST.new(test_string).to_html(:part => :fragment)
     assert_equal(
-      %Q{<p>Hello ☃</p>\n},
+      %Q{<p>#{test_string}</p>\n},
       output
     )
   end
 
   should "convert to latex with unicode" do
-    output = RbST.new("Hello ☃").to_latex(:part => :body)
+    test_string = "Hello ☃".force_encoding("utf-8")
+    output = RbST.new(test_string).to_latex(:part => :body)
     assert_equal(
-      %Q{\nHello ☃\n\n},
+      %Q{\n#{test_string}\n\n},
       output
     )
   end
