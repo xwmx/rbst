@@ -2,23 +2,28 @@
 
 class RbST
 
-  @@executable_path = File.expand_path(File.join(File.dirname(__FILE__), "rst2parts"))
+  @@executable_path = File.expand_path(
+    File.join(File.dirname(__FILE__), "rst2parts")
+  )
   @@executables = {
     :html  => File.join(@@executable_path, "rst2html.py"),
     :latex => File.join(@@executable_path, "rst2latex.py")
   }
 
-  # Takes a string or file path plus any additional options and converts the input.
+  # Takes a string or file path plus any additional options and converts the
+  # input.
   def self.convert(*args)
     new(*args).convert
   end
 
-  # Print LaTeX-Specific Options, General Docutils Options and reStructuredText Parser Options.
+  # Print LaTeX-Specific Options, General Docutils Options and reStructuredText
+  # Parser Options.
   def self.latex_options
     new.print_options(:latex)
   end
 
-  # Print HTML-Specific Options, General Docutils Options and reStructuredText Parser Options.
+  # Print HTML-Specific Options, General Docutils Options and reStructuredText
+  # Parser Options.
   def self.html_options
     new.print_options(:html)
   end
@@ -35,7 +40,8 @@ class RbST
   # Return the executable hash.
   def self.executables; @@executables end
 
-  # Takes a string or file path plus any additional options and creates a new converter object.
+  # Takes a string or file path plus any additional options and creates a new
+  # converter object.
   def initialize(*args)
     target = args.shift
     @target  = File.exists?(target) ? File.read(target) : target rescue target
@@ -62,7 +68,8 @@ class RbST
     convert
   end
 
-  # Formats and prints the options from the docutils help in the way they'd be specified in RbST: strings, symbols and hashes.
+  # Formats and prints the options from the docutils help in the way they'd be
+  # specified in RbST: strings, symbols and hashes.
   def print_options(format)
     help = execute("python #{@@executables[format]} --help")
     # non-hyphenated long options to symbols
