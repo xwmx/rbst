@@ -118,7 +118,7 @@ See <\url{http://docutils.sf.net/rst.html}> for introductory docs.
 \textbf{Revision}: &
 	4321 \\
 \textbf{Description}: &
-This is a ``docinfo block'', or bibliographic field list
+This is a \textquotedbl{}docinfo block\textquotedbl{}, or bibliographic field list
 \\
 \end{tabularx}
 \end{center}
@@ -150,7 +150,7 @@ Block quotes are indented.
 
 \end{quote}
  & \multirow{2}{0.42\DUtablewidth}{%
-Literal block, preceded by ``::'':
+Literal block, preceded by \textquotedbl{}::\textquotedbl{}:
 
 {\ttfamily \raggedright \noindent
 Indented
@@ -211,7 +211,7 @@ Bullet list
  & %
 \begin{itemize}
 
-\item items begin with ``-'', ``+'', or ``*''
+\item items begin with \textquotedbl{}-\textquotedbl{}, \textquotedbl{}+\textquotedbl{}, or \textquotedbl{}*\textquotedbl{}
 
 \end{itemize}
  \\
@@ -225,7 +225,7 @@ Enumerated list
 \setlength{\rightmargin}{\leftmargin}
 }
 
-\item items use any variation of ``1.'', ``A)'', and ``(i)''
+\item items use any variation of \textquotedbl{}1.\textquotedbl{}, \textquotedbl{}A)\textquotedbl{}, and \textquotedbl{}(i)\textquotedbl{}
 
 \item also auto-enumerated
 \end{list}
@@ -310,8 +310,8 @@ Anonymous Target
  &  \\
 \hline
 
-Directive (``::'')
- &
+Directive (\textquotedbl{}::\textquotedbl{})
+ & 
 \includegraphics{images/biohazard.png}
  \\
 \hline
@@ -321,14 +321,14 @@ Substitution Def
 \hline
 
 Comment
- &
+ & 
 % is anything else
  \\
 \hline
 
 Empty Comment
- &
-(``..'' on a line by itself, with blank lines before \& after,
+ & 
+(\textquotedbl{}..\textquotedbl{} on a line by itself, with blank lines before \& after,
 used to separate indentation contexts)
  \\
 \hline
@@ -376,182 +376,182 @@ Description (Docutils version added to, in {[}brackets{]})
 \endlastfoot
 
 attention
- &
-Specific admonition; also ``caution'', ``danger'',
-``error'', ``hint'', ``important'', ``note'', ``tip'', ``warning''
+ & 
+Specific admonition; also \textquotedbl{}caution\textquotedbl{}, \textquotedbl{}danger\textquotedbl{},
+\textquotedbl{}error\textquotedbl{}, \textquotedbl{}hint\textquotedbl{}, \textquotedbl{}important\textquotedbl{}, \textquotedbl{}note\textquotedbl{}, \textquotedbl{}tip\textquotedbl{}, \textquotedbl{}warning\textquotedbl{}
  \\
 \hline
 
 admonition
- &
+ & 
 Generic titled admonition: \texttt{.. admonition:: By The Way}
  \\
 \hline
 
 image
- &
+ & 
 \texttt{.. image:: picture.png}; many options possible
  \\
 \hline
 
 figure
- &
-Like ``image'', but with optional caption and legend
+ & 
+Like \textquotedbl{}image\textquotedbl{}, but with optional caption and legend
  \\
 \hline
 
 topic
- &
+ & 
 \texttt{.. topic:: Title}; like a mini section
  \\
 \hline
 
 sidebar
- &
+ & 
 \texttt{.. sidebar:: Title}; like a mini parallel document
  \\
 \hline
 
 parsed-literal
- &
+ & 
 A literal block with parsed inline markup
  \\
 \hline
 
 rubric
- &
+ & 
 \texttt{.. rubric:: Informal Heading}
  \\
 \hline
 
 epigraph
- &
-Block quote with class=``epigraph''
+ & 
+Block quote with class=\textquotedbl{}epigraph\textquotedbl{}
  \\
 \hline
 
 highlights
- &
-Block quote with class=``highlights''
+ & 
+Block quote with class=\textquotedbl{}highlights\textquotedbl{}
  \\
 \hline
 
 pull-quote
- &
-Block quote with class=``pull-quote''
+ & 
+Block quote with class=\textquotedbl{}pull-quote\textquotedbl{}
  \\
 \hline
 
 compound
- &
+ & 
 Compound paragraphs {[}0.3.6{]}
  \\
 \hline
 
 container
- &
+ & 
 Generic block-level container element {[}0.3.10{]}
  \\
 \hline
 
 table
- &
+ & 
 Create a titled table {[}0.3.1{]}
  \\
 \hline
 
 list-table
- &
+ & 
 Create a table from a uniform two-level bullet list {[}0.3.8{]}
  \\
 \hline
 
 csv-table
- &
+ & 
 Create a table from CSV data (requires Python 2.3+) {[}0.3.4{]}
  \\
 \hline
 
 contents
- &
+ & 
 Generate a table of contents
  \\
 \hline
 
 sectnum
- &
+ & 
 Automatically number sections, subsections, etc.
  \\
 \hline
 
 header, footer
- &
+ & 
 Create document decorations {[}0.3.8{]}
  \\
 \hline
 
 target-notes
- &
+ & 
 Create an explicit footnote for each external target
  \\
 \hline
 
 meta
- &
+ & 
 HTML-specific metadata
  \\
 \hline
 
 include
- &
+ & 
 Read an external reST file as if it were inline
  \\
 \hline
 
 raw
- &
+ & 
 Non-reST data passed untouched to the Writer
  \\
 \hline
 
 replace
- &
+ & 
 Replacement text for substitution definitions
  \\
 \hline
 
 unicode
- &
+ & 
 Unicode character code conversion for substitution defs
  \\
 \hline
 
 date
- &
+ & 
 Generates today's date; for substitution defs
  \\
 \hline
 
 class
- &
-Set a ``class'' attribute on the next element
+ & 
+Set a \textquotedbl{}class\textquotedbl{} attribute on the next element
  \\
 \hline
 
 role
- &
+ & 
 Create a custom interpreted text role {[}0.3.2{]}
  \\
 \hline
 
 default-role
- &
+ & 
 Set the default interpreted text role {[}0.3.10{]}
  \\
 \hline
 
 title
- &
+ & 
 Set the metadata document title {[}0.3.10{]}
  \\
 \hline
@@ -587,58 +587,59 @@ Description
 \endlastfoot
 
 emphasis
- &
+ & 
 Equivalent to \emph{emphasis}
  \\
 \hline
 
 literal
- &
+ & 
 Equivalent to \texttt{literal} but processes backslash escapes
  \\
 \hline
 
 PEP
- &
+ & 
 Reference to a numbered Python Enhancement Proposal
  \\
 \hline
 
 RFC
- &
+ & 
 Reference to a numbered Internet Request For Comments
  \\
 \hline
 
 raw
- &
+ & 
 For non-reST data; cannot be used directly (see docs) {[}0.3.6{]}
  \\
 \hline
 
 strong
- &
+ & 
 Equivalent to \textbf{strong}
  \\
 \hline
 
 sub
- &
+ & 
 Subscript
  \\
 \hline
 
 sup
- &
+ & 
 Superscript
  \\
 \hline
 
 title
- &
+ & 
 Title reference (book, etc.); standard default role
  \\
 \hline
 \end{longtable*}
 
 \end{document}
+
