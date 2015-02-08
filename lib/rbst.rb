@@ -72,16 +72,17 @@ class RbST
   # specified in RbST: strings, symbols and hashes.
   def print_options(format)
     help = execute("python #{@@executables[format]} --help")
-    # non-hyphenated long options to symbols
+    # Convert non-hyphenated long options to symbols
     help.gsub!(/(\-\-)([A-Za-z0-9]+)([=|\s])/, ':\2\3')
-    # hyphenated long options to quoted strings
+    # Convert hyphenated long options to quoted strings
     help.gsub!(/(\-\-)([\w|\-]+)(\n)?[^$|^=|\]]?/, '\'\2\'\3')
-    # equal to hashrocket
+    # Convert equal signs to hashrocket
     help.gsub!(/\=/, ' => ')
-    # hort options to symbols
+    # Convert short options to symbols
     help.gsub!(/([^\w])\-(\w)([^\w])/, '\1:\2\1')
-    # short options with args get a hashrocket
+    # Convert short options with args get a hashrocket
     help.gsub!(/(:\w) </, '\1 => <')
+    # Print converted help text
     puts help
   end
 
