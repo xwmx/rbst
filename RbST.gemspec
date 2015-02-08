@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "RbST"
-  s.version = "0.3.0"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["William Melody"]
-  s.date = "2012-11-02"
+  s.date = "2015-02-08"
   s.description = "A simple Ruby wrapper for processing reStructuredText via Python's Docutils"
   s.email = "hi@williammelody.com"
   s.extra_rdoc_files = [
