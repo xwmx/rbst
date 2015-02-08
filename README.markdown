@@ -4,7 +4,7 @@ A simple Ruby wrapper for processing reStructuredText via Python's Docutils.
 
 ## Installation
 
-Python 2.3+ is required.
+Python 2.3+ (or 3.3+) is required.
 
 RbST is available on [RubyGems.org](http://gemcutter.org/gems/RbST).
 
@@ -56,7 +56,6 @@ For more information on reStructuredText, see the
 
 -   Docutils is very slow. On my 2.5 GHz Core 2 Duo it takes over half a second to convert the test file to HTML, including about 0.2s to start up and 0.38s to process the input data. In other words, this isn't the sort of thing you'd want to be using directly in a Rails view helper.
 -   This has only been tested on \*nix systems.
--   Python 3 has not been tested.
 
 ## Note on Patches/Pull Requests
 

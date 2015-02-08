@@ -23,7 +23,7 @@ def transform(writer=None, part=None):
 
     if len(args) == 1:
         try:
-            content = open(args[0], 'r').read()
+            content = open(args[0], 'rb').read()
         except IOError:
             content = args[0]
     else:
@@ -36,5 +36,5 @@ def transform(writer=None, part=None):
     )
 
     if opts.part in parts:
-        return parts[opts.part].encode(parts["encoding"])
-    return ''
+        return parts[opts.part]
+    return u''
