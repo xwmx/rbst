@@ -7,7 +7,7 @@ class RbST
     :html  => File.join(@@executable_path, "rst2html.py"),
     :latex => File.join(@@executable_path, "rst2latex.py")
   }
-  
+
   # Takes a string or file path plus any additional options and converts the input.
   def self.convert(*args)
     new(*args).convert
