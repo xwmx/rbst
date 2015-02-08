@@ -11,20 +11,6 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "RbST"
-  gem.homepage = "http://github.com/alphabetum/rbst"
-  gem.license = "MIT"
-  gem.summary = %Q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
-  gem.description = %Q{A simple Ruby wrapper for processing reStructuredText via Python's Docutils}
-  gem.email = "hi@williammelody.com"
-  gem.authors = ["William Melody"]
-  # dependencies defined in Gemfile
-end
-Jeweler::RubygemsDotOrgTasks.new
-
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
