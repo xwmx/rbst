@@ -91,12 +91,21 @@ class TestRbST < Test::Unit::TestCase
   should "recognize cloak_email_addresses option" do
     html_with_uncloaked_email = RbST.convert("steve@mac.com")
     assert_equal(
-      %Q{<div class=\"document\">\n<p><a class=\"reference external\" href=\"mailto:steve&#64;mac.com\">steve&#64;mac.com</a></p>\n</div>\n},
+      %Q{<div class=\"document\">\n<p>} +
+      %Q{<a class=\"reference external\" href=\"mailto:steve&#64;mac.com\">} +
+        %Q{steve&#64;mac.com</a>} +
+      %Q{</p>\n</div>\n},
       html_with_uncloaked_email
     )
-    html_with_cloaked_email = RbST.convert("steve@mac.com", 'cloak-email-addresses')
+    html_with_cloaked_email = RbST.convert(
+      "steve@mac.com", 'cloak-email-addresses'
+    )
     assert_equal(
-      %Q{<div class=\"document\">\n<p><a class=\"reference external\" href=\"mailto:steve&#37;&#52;&#48;mac&#46;com\">steve<span>&#64;</span>mac<span>&#46;</span>com</a></p>\n</div>\n},
+      %Q{<div class=\"document\">\n<p>} +
+        %Q{<a class=\"reference external\" } +
+        %Q{href=\"mailto:steve&#37;&#52;&#48;mac&#46;com\">} +
+        %Q{steve<span>&#64;</span>mac<span>&#46;</span>com} +
+        %Q{</a></p>\n</div>\n},
       html_with_cloaked_email
     )
   end
