@@ -127,7 +127,7 @@ class TestRbST < Test::Unit::TestCase
     test_string = "Hello ☃".force_encoding("utf-8")
     output = RbST.new(test_string).to_latex(:part => :body)
     assert_equal(
-      %Q{\n#{test_string}\n\n},
+      %Q{\n#{test_string}\n},
       output
     )
   end
