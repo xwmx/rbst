@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 class RbST
-
+  @@python_path="python"
   @@executable_path = File.expand_path(
     File.join(File.dirname(__FILE__), "rst2parts")
   )
@@ -40,6 +40,13 @@ class RbST
   # Return the executable hash.
   def self.executables; @@executables end
 
+  # Specify a python path or executable.
+  def self.python_path=(path_to_python)
+    @@python_path = path_to_python
+  end
+  # Return the python path.
+  def self.python_path; @@python_path end
+
   # Takes a string or file path plus any additional options and creates a new
   # converter object.
   def initialize(*args)
@@ -50,7 +57,10 @@ class RbST
 
   def convert # :nodoc:
     @output_format ||= :html
-    execute "python #{@@executables[@output_format]}" + convert_options
+    execute(
+      "#{@@python_path} #{@@executables[@output_format]}" +
+      convert_options
+    )
   end
   alias_method :to_s, :convert
 
@@ -71,7 +81,7 @@ class RbST
   # Formats and prints the options from the docutils help in the way they'd be
   # specified in RbST: strings, symbols and hashes.
   def print_options(format)
-    help = execute("python #{@@executables[format]} --help")
+    help = execute("#{@@python_path} #{@@executables[format]} --help")
     # Convert non-hyphenated long options to symbols
     help.gsub!(/(\-\-)([A-Za-z0-9]+)([=|\s])/, ':\2\3')
     # Convert hyphenated long options to quoted strings

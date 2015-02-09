@@ -132,5 +132,59 @@ class TestRbST < Test::Unit::TestCase
     )
   end
 
+  should "execute with custom python path" do
+    RbST.python_path = "/usr/bin/env python3"
+    converter = RbST.new(@rst_file)
+    converter \
+      .expects(:execute) \
+      .with("/usr/bin/env python3 #{@rst2parts_path}/rst2html.py") \
+      .returns(true)
+    assert converter.convert
+    RbST.python_path = "python"
+  end
+
+  should "convert to html with python3" do
+    RbST.python_path = "/usr/bin/env python3"
+    test_string = "Hello ☃".force_encoding("utf-8")
+    output = RbST.new(test_string).to_html(:part => :fragment)
+    assert_equal(
+      %Q{<p>#{test_string}</p>\n},
+      output
+    )
+    RbST.python_path = "python"
+  end
+
+  should "convert to latex with python3" do
+    RbST.python_path = "/usr/bin/env python3"
+    test_string = "Hello ☃".force_encoding("utf-8")
+    output = RbST.new(test_string).to_latex(:part => :body)
+    assert_equal(
+      %Q{\n#{test_string}\n},
+      output
+    )
+    RbST.python_path = "python"
+  end
+
+  should "convert to html with python2" do
+    RbST.python_path = "/usr/bin/env python2"
+    test_string = "Hello ☃".force_encoding("utf-8")
+    output = RbST.new(test_string).to_html(:part => :fragment)
+    assert_equal(
+      %Q{<p>#{test_string}</p>\n},
+      output
+    )
+    RbST.python_path = "python"
+  end
+
+  should "convert to latex with python2" do
+    RbST.python_path = "/usr/bin/env python2"
+    test_string = "Hello ☃".force_encoding("utf-8")
+    output = RbST.new(test_string).to_latex(:part => :body)
+    assert_equal(
+      %Q{\n#{test_string}\n},
+      output
+    )
+    RbST.python_path = "python"
+  end
 
 end

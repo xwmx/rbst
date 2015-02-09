@@ -49,6 +49,12 @@ You might run into a situation where you want to specify a custom script for pro
     RbST.new("something").to_html  # uses custom executable for outputting html
     RbST.new("something else").to_latex # uses default executable for latex since a custom one wasn't specified
 
+Similarly, if you want to explicitly specify which python executable to
+use, set the path with the `RbST.python_path=` method:
+
+    RbST.python_path = "/usr/bin/env python3"
+    RbST.new("something").to_latex
+
 For more information on reStructuredText, see the
 [ReST documentation](http://docutils.sourceforge.net/rst.html).
 
