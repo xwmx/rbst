@@ -15,8 +15,7 @@ GEM
       metaclass (~> 0.0.1)
     power_assert (0.2.2)
     rake (10.4.2)
-    rdoc (3.12.2)
-      json (~> 1.4)
+    rdoc (4.2.0)
     shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
       shoulda-matchers (>= 1.4.1, < 3.0)
@@ -33,8 +32,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  mocha
-  rake
-  rdoc (~> 3.12)
-  shoulda
-  test-unit
+  mocha (~> 1.1.0)
+  rake (~> 10.4.2)
+  rdoc (~> 4.2.0)
+  shoulda (~> 3.5.0)
+  test-unit (~> 3.0.9)
