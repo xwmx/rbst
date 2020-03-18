@@ -6,8 +6,8 @@ class RbST
     File.join(File.dirname(__FILE__), "rst2parts")
   )
   @@executables = {
-    :html  => File.join(@@executable_path, "rst2html.py"),
-    :latex => File.join(@@executable_path, "rst2latex.py")
+    html:  File.join(@@executable_path, "rst2html.py"),
+    latex: File.join(@@executable_path, "rst2latex.py")
   }
 
   # Takes a string or file path plus any additional options and converts the

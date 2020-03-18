@@ -25,7 +25,7 @@ describe RbST do
   end
 
   it "should convert with custom executable" do
-    executables = { :html => "/some/path/2html.py" }
+    executables = { html: "/some/path/2html.py" }
     default_executables = RbST.executables
     RbST.executables = executables
     converter = RbST.new(@rst_file)
@@ -38,7 +38,7 @@ describe RbST do
   end
 
   it "should raise error when passed bad executable key" do
-    executables = { :markdown => "/some/path/2markdown.py" }
+    executables = { markdown: "/some/path/2markdown.py" }
     begin
       RbST.executables = executables
       flunk
@@ -110,12 +110,12 @@ describe RbST do
   end
 
   it "should recognize part option" do
-    html_body = RbST.convert("hello world", :part => :html_body)
+    html_body = RbST.convert("hello world", part: :html_body)
     assert_equal(
       %Q(<div class=\"document\">\n<p>hello world</p>\n</div>\n),
       html_body
     )
-    fragment = RbST.convert("hello world", :part => :fragment)
+    fragment = RbST.convert("hello world", part: :fragment)
     assert_equal(
       %Q(<p>hello world</p>\n),
       fragment
@@ -124,7 +124,7 @@ describe RbST do
 
   it "should convert to html with unicode" do
     test_string = "Hello ☃"
-    output = RbST.new(test_string).to_html(:part => :fragment)
+    output = RbST.new(test_string).to_html(part: :fragment)
     assert_equal(
       %Q(<p>#{test_string}</p>\n),
       output
@@ -133,7 +133,7 @@ describe RbST do
 
   it "should convert to latex with unicode" do
     test_string = "Hello ☃"
-    output = RbST.new(test_string).to_latex(:part => :body)
+    output = RbST.new(test_string).to_latex(part: :body)
     assert_equal(
       %Q(\n#{test_string}\n),
       output
@@ -154,7 +154,7 @@ describe RbST do
   it "should convert to html with python3" do
     RbST.python_path = "/usr/bin/env python3"
     test_string = "Hello ☃"
-    output = RbST.new(test_string).to_html(:part => :fragment)
+    output = RbST.new(test_string).to_html(part: :fragment)
     assert_equal(
       %Q(<p>#{test_string}</p>\n),
       output
@@ -165,7 +165,7 @@ describe RbST do
   it "should convert to latex with python3" do
     RbST.python_path = "/usr/bin/env python3"
     test_string = "Hello ☃"
-    output = RbST.new(test_string).to_latex(:part => :body)
+    output = RbST.new(test_string).to_latex(part: :body)
     assert_equal(
       %Q(\n#{test_string}\n),
       output
@@ -176,7 +176,7 @@ describe RbST do
   it "should convert to html with python2" do
     RbST.python_path = "/usr/bin/env python2"
     test_string = "Hello ☃"
-    output = RbST.new(test_string).to_html(:part => :fragment)
+    output = RbST.new(test_string).to_html(part: :fragment)
     assert_equal(
       %Q(<p>#{test_string}</p>\n),
       output
@@ -187,7 +187,7 @@ describe RbST do
   it "should convert to latex with python2" do
     RbST.python_path = "/usr/bin/env python2"
     test_string = "Hello ☃"
-    output = RbST.new(test_string).to_latex(:part => :body)
+    output = RbST.new(test_string).to_latex(part: :body)
     assert_equal(
       %Q(\n#{test_string}\n),
       output

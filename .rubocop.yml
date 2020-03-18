@@ -10,7 +10,7 @@ AllCops:
 inherit_from: .rubocop_todo.yml
 
 Layout/HashAlignment:
-  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
 
 # Layout/IndentationConsistency
 #
