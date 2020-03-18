@@ -8,40 +8,51 @@ Python 2.3+ (or 3.3+) is required.
 
 RbST is available on [RubyGems.org](http://gemcutter.org/gems/RbST).
 
-    gem install RbST
+```bash
+gem install RbST
+```
 
 ## Usage
 
-    require 'rbst'
-    ...
-    @html = RbST.new('/some/file.rst').to_html
-    # or
-    @latex = RbST.new('*hello*').to_latex
+```ruby
+require 'rbst'
+@html = RbST.new('/some/file.rst').to_html
+# or
+@latex = RbST.new('*hello*').to_latex
+```
 
 This takes the reStructuredText formatted file and converts it to either HTML
 or LaTeX. The first argument can be either a file or a string.
 
 You can also use the `convert` class method to output HTML:
 
-    puts RbST.convert('/some/file.rst')
+```ruby
+puts RbST.convert('/some/file.rst')
+```
 
 Arguments can be passed to `#to_html`, `#to_latex`, `new` or `convert`,
 accepting symbols or strings for options without arguments and hashes of
 strings or symbols for options with arguments.
 
-    puts RbST.new(".. a comment").to_html('strip-comments')
-    # => '<div class="document">\n</div>'
+```ruby
+puts RbST.new(".. a comment").to_html('strip-comments')
+# => '<div class="document">\n</div>'
+```
 
 Options passed as string use hyphens while symbols use underscores. For
 instance, the above could also be written as:
 
-    puts RbST.new(".. a comment").to_html(:strip_comments)
-    # => '<div class="document">\n</div>'
+```ruby
+puts RbST.new(".. a comment").to_html(:strip_comments)
+# => '<div class="document">\n</div>'
+```
 
 Document parts can also be specified with the `:parts` option.
 
-    puts RbST.new("hello world").to_html(:part => :fragment)
-    # => '<p>hello world</p>'
+```ruby
+puts RbST.new("hello world").to_html(:part => :fragment)
+# => '<p>hello world</p>'
+```
 
 By default, RbST uses the `html_body` part for HTML and the `whole` part
 for LaTeX.
@@ -54,19 +65,23 @@ processing one or both of the output formats. If so, just specify the full
 path to the custom script for the format by passing a hash to the
 `RbST.executables=` method:
 
-    RbST.executables = {:html => "/some/other/path/2html.py"}
+```ruby
+RbST.executables = {:html => "/some/other/path/2html.py"}
 
-    # uses custom executable for outputting html
-    RbST.new("something").to_html
+# uses custom executable for outputting html
+RbST.new("something").to_html
 
-    # uses default executable for latex since a custom one wasn't specified
-    RbST.new("something else").to_latex
+# uses default executable for latex since a custom one wasn't specified
+RbST.new("something else").to_latex
+```
 
 Similarly, if you want to explicitly specify which python executable to
 use, set the path with the `RbST.python_path=` method:
 
-    RbST.python_path = "/usr/bin/env python3"
-    RbST.new("something").to_latex
+```ruby
+RbST.python_path = "/usr/bin/env python3"
+RbST.new("something").to_latex
+```
 
 For more information on reStructuredText, see the
 [ReST documentation](http://docutils.sourceforge.net/rst.html).
