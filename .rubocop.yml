@@ -30,3 +30,7 @@ Style/HashTransformKeys:
 # TODO: Remove when Rubocop hits version 1.0.
 Style/HashTransformValues:
   Enabled: true
+
+# Prefer brackets for symbol arrays.
+Style/SymbolArray:
+  EnforcedStyle: brackets
