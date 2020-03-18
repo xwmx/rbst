@@ -25,7 +25,7 @@ describe RbST do
   end
 
   it "should convert with custom executable" do
-    executables = {:html => "/some/path/2html.py"}
+    executables = { :html => "/some/path/2html.py" }
     default_executables = RbST.executables
     RbST.executables = executables
     converter = RbST.new(@rst_file)
@@ -38,7 +38,7 @@ describe RbST do
   end
 
   it "should raise error when passed bad executable key" do
-    executables = {:markdown => "/some/path/2markdown.py"}
+    executables = { :markdown => "/some/path/2markdown.py" }
     begin
       RbST.executables = executables
       flunk
