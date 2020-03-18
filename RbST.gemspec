@@ -11,14 +11,14 @@ Gem::Specification.new do |s|
   s.date = '2015-02-08'
   s.extra_rdoc_files = [
     "LICENSE",
-    "README.markdown"
+    "README.md"
   ]
   s.files = [
     ".document",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE",
-    "README.markdown",
+    "README.md",
     "Rakefile",
     "RbST.gemspec",
     "lib/rbst.rb",
