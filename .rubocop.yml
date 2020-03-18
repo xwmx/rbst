@@ -58,6 +58,21 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
+# Use '||' for `%Q` delimiters.
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%Q': '||'
+
+# Allow `%Q` when `%q` would do for better consistency.
+Style/PercentQLiterals:
+  Exclude:
+    - 'test/test_rbst.rb'
+
+# Permit redundant `%Q` literals in rest_rbst.rb for better consistency.
+Style/RedundantPercentQ:
+  Exclude:
+    - 'test/test_rbst.rb'
+
 # Prefer brackets for symbol arrays.
 Style/SymbolArray:
   EnforcedStyle: brackets
