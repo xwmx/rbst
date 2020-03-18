@@ -194,5 +194,4 @@ describe RbST do
     )
     RbST.python_path = "python"
   end
-
 end
