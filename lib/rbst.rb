@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 class RbST
-  @@python_path="python"
+  @@python_path = "python"
   @@executable_path = File.expand_path(
     File.join(File.dirname(__FILE__), "rst2parts")
   )
@@ -54,7 +54,7 @@ class RbST
   # converter object.
   def initialize(*args)
     target = args.shift
-    @target  = File.exist?(target) ? File.read(target) : target rescue target
+    @target = File.exist?(target) ? File.read(target) : target rescue target
     @options = args
   end
 
