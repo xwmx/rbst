@@ -51,7 +51,7 @@ class RbST
   # converter object.
   def initialize(*args)
     target = args.shift
-    @target  = File.exists?(target) ? File.read(target) : target rescue target
+    @target  = File.exist?(target) ? File.read(target) : target rescue target
     @options = args
   end
 
