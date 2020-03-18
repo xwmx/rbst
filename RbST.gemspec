@@ -34,10 +34,10 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/xwmx/rbst"
   s.require_paths = ['lib']
+  s.add_development_dependency('minitest',  '~> 5')
   s.add_development_dependency('mocha',     '~> 1',   '>= 0')
   s.add_development_dependency('rake',      '~> 12',  '>= 12.3.3')
   s.add_development_dependency('rdoc',      '~> 6',   '>= 0')
-  s.add_development_dependency('shoulda',   '~> 3.5.0')
-  s.add_development_dependency('test-unit', '~> 3',   '>= 0')
+  s.add_development_dependency('rubocop',   '~> 0', '>= 0.49.0')
   s.required_ruby_version = '>= 2.3'
 end
