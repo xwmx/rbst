@@ -118,10 +118,12 @@ protected
   def convert_options
     @options.inject('') do |string, opt|
       string + if opt.respond_to?(:each_pair)
-        convert_opts_with_args(opt)
-      else
-        opt.to_s.length == 1 ? " -#{opt}" : " --#{opt.to_s.gsub(/_/, '-')}"
-      end
+                 convert_opts_with_args(opt)
+               elsif opt.to_s.length == 1
+                 " -#{opt}"
+               else
+                 " --#{opt.to_s.gsub(/_/, '-')}"
+               end
     end
   end
 
