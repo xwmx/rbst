@@ -61,6 +61,7 @@ Style/HashTransformValues:
 # Use '||' for `%Q` delimiters.
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
+    '%':  '||'
     '%Q': '||'
 
 # Allow `%Q` when `%q` would do for better consistency.
