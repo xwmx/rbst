@@ -123,7 +123,7 @@ describe RbST do
   end
 
   it "should convert to html with unicode" do
-    test_string = "Hello ☃".force_encoding("utf-8")
+    test_string = "Hello ☃"
     output = RbST.new(test_string).to_html(:part => :fragment)
     assert_equal(
       %Q{<p>#{test_string}</p>\n},
@@ -132,7 +132,7 @@ describe RbST do
   end
 
   it "should convert to latex with unicode" do
-    test_string = "Hello ☃".force_encoding("utf-8")
+    test_string = "Hello ☃"
     output = RbST.new(test_string).to_latex(:part => :body)
     assert_equal(
       %Q{\n#{test_string}\n},
@@ -153,7 +153,7 @@ describe RbST do
 
   it "should convert to html with python3" do
     RbST.python_path = "/usr/bin/env python3"
-    test_string = "Hello ☃".force_encoding("utf-8")
+    test_string = "Hello ☃"
     output = RbST.new(test_string).to_html(:part => :fragment)
     assert_equal(
       %Q{<p>#{test_string}</p>\n},
@@ -164,7 +164,7 @@ describe RbST do
 
   it "should convert to latex with python3" do
     RbST.python_path = "/usr/bin/env python3"
-    test_string = "Hello ☃".force_encoding("utf-8")
+    test_string = "Hello ☃"
     output = RbST.new(test_string).to_latex(:part => :body)
     assert_equal(
       %Q{\n#{test_string}\n},
@@ -175,7 +175,7 @@ describe RbST do
 
   it "should convert to html with python2" do
     RbST.python_path = "/usr/bin/env python2"
-    test_string = "Hello ☃".force_encoding("utf-8")
+    test_string = "Hello ☃"
     output = RbST.new(test_string).to_html(:part => :fragment)
     assert_equal(
       %Q{<p>#{test_string}</p>\n},
@@ -186,7 +186,7 @@ describe RbST do
 
   it "should convert to latex with python2" do
     RbST.python_path = "/usr/bin/env python2"
-    test_string = "Hello ☃".force_encoding("utf-8")
+    test_string = "Hello ☃"
     output = RbST.new(test_string).to_latex(:part => :body)
     assert_equal(
       %Q{\n#{test_string}\n},
