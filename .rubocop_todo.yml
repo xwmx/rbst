@@ -102,18 +102,6 @@ Style/Encoding:
     - 'lib/rbst.rb'
     - 'test/test_rbst.rb'
 
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, always_true, never
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - 'Gemfile'
-    - 'Rakefile'
-    - 'lib/rbst.rb'
-    - 'test/helper.rb'
-    - 'test/test_rbst.rb'
-
 # Offense count: 13
 # Cop supports --auto-correct.
 # Configuration parameters: UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
