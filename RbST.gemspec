@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_rbst.rb"
   ]
-  s.homepage = "http://github.com/alphabetum/rbst"
+  s.homepage = "http://github.com/xwmx/rbst"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
