@@ -6,6 +6,9 @@
 
 inherit_from: .rubocop_todo.yml
 
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+
 # Layout/IndentationConsistency
 #
 # Use Rails-style access modifier indentation.
