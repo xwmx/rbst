@@ -7,14 +7,10 @@ rescue Bundler::BundlerError => e
   $stderr.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
-require 'test/unit'
-require 'shoulda'
-require 'mocha/setup'
+require 'minitest/autorun'
+require 'minitest/pride'
+require 'mocha/minitest'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rbst'
-
-class Test::Unit::TestCase
-end
-

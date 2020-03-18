@@ -1,9 +1,8 @@
 # encoding: UTF-8
 
 require 'helper'
-require 'mocha'
 
-class TestRbST < Test::Unit::TestCase
+describe RbST do
   def setup
     [:rst, :html, :latex].each do |f|
       instance_variable_set(
@@ -16,7 +15,7 @@ class TestRbST < Test::Unit::TestCase
     )
   end
 
-  should "call bare rest2parts when passed no options" do
+  it "should call bare rest2parts when passed no options" do
     converter = RbST.new(@rst_file)
     converter \
       .expects(:execute) \
@@ -25,7 +24,7 @@ class TestRbST < Test::Unit::TestCase
     assert converter.convert
   end
 
-  should "convert with custom executable" do
+  it "should convert with custom executable" do
     executables = {:html => "/some/path/2html.py"}
     default_executables = RbST.executables
     RbST.executables = executables
@@ -38,7 +37,7 @@ class TestRbST < Test::Unit::TestCase
     RbST.executables = default_executables
   end
 
-  should "raise error when passed bad executable key" do
+  it "should raise error when passed bad executable key" do
     executables = {:markdown => "/some/path/2markdown.py"}
     begin
       RbST.executables = executables
@@ -48,7 +47,7 @@ class TestRbST < Test::Unit::TestCase
     end
   end
 
-  should "convert ReST to html" do
+  it "should convert ReST to html" do
     html = RbST.new(@rst_file).to_html
     assert_equal(
       File.read(@html_file),
@@ -56,7 +55,7 @@ class TestRbST < Test::Unit::TestCase
     )
   end
 
-  should "convert ReST to LaTeX" do
+  it "should convert ReST to LaTeX" do
     latex = RbST.new(@rst_file).to_latex
     assert_equal(
       File.read(@latex_file),
@@ -65,7 +64,7 @@ class TestRbST < Test::Unit::TestCase
   end
 
   [:html, :latex].each do |f|
-    should "accept options on #to_#{f}" do
+    it "should accept options on #to_#{f}" do
       converter = RbST.new(@rst_file)
       converter \
         .expects(:execute) \
@@ -75,7 +74,7 @@ class TestRbST < Test::Unit::TestCase
     end
   end
 
-  should "recognize strip_comments option" do
+  it "should recognize strip_comments option" do
     html_with_comment = RbST.convert(".. comment")
     assert_equal(
       html_with_comment,
@@ -88,7 +87,7 @@ class TestRbST < Test::Unit::TestCase
     )
   end
 
-  should "recognize cloak_email_addresses option" do
+  it "should recognize cloak_email_addresses option" do
     html_with_uncloaked_email = RbST.convert("steve@mac.com")
     assert_equal(
       %Q{<div class=\"document\">\n<p>} +
@@ -110,7 +109,7 @@ class TestRbST < Test::Unit::TestCase
     )
   end
 
-  should "recognize part option" do
+  it "should recognize part option" do
     html_body = RbST.convert("hello world", :part => :html_body)
     assert_equal(
       %Q{<div class=\"document\">\n<p>hello world</p>\n</div>\n},
@@ -123,7 +122,7 @@ class TestRbST < Test::Unit::TestCase
     )
   end
 
-  should "convert to html with unicode" do
+  it "should convert to html with unicode" do
     test_string = "Hello ☃".force_encoding("utf-8")
     output = RbST.new(test_string).to_html(:part => :fragment)
     assert_equal(
@@ -132,7 +131,7 @@ class TestRbST < Test::Unit::TestCase
     )
   end
 
-  should "convert to latex with unicode" do
+  it "should convert to latex with unicode" do
     test_string = "Hello ☃".force_encoding("utf-8")
     output = RbST.new(test_string).to_latex(:part => :body)
     assert_equal(
@@ -141,7 +140,7 @@ class TestRbST < Test::Unit::TestCase
     )
   end
 
-  should "execute with custom python path" do
+  it "should execute with custom python path" do
     RbST.python_path = "/usr/bin/env python3"
     converter = RbST.new(@rst_file)
     converter \
@@ -152,7 +151,7 @@ class TestRbST < Test::Unit::TestCase
     RbST.python_path = "python"
   end
 
-  should "convert to html with python3" do
+  it "should convert to html with python3" do
     RbST.python_path = "/usr/bin/env python3"
     test_string = "Hello ☃".force_encoding("utf-8")
     output = RbST.new(test_string).to_html(:part => :fragment)
@@ -163,7 +162,7 @@ class TestRbST < Test::Unit::TestCase
     RbST.python_path = "python"
   end
 
-  should "convert to latex with python3" do
+  it "should convert to latex with python3" do
     RbST.python_path = "/usr/bin/env python3"
     test_string = "Hello ☃".force_encoding("utf-8")
     output = RbST.new(test_string).to_latex(:part => :body)
@@ -174,7 +173,7 @@ class TestRbST < Test::Unit::TestCase
     RbST.python_path = "python"
   end
 
-  should "convert to html with python2" do
+  it "should convert to html with python2" do
     RbST.python_path = "/usr/bin/env python2"
     test_string = "Hello ☃".force_encoding("utf-8")
     output = RbST.new(test_string).to_html(:part => :fragment)
@@ -185,7 +184,7 @@ class TestRbST < Test::Unit::TestCase
     RbST.python_path = "python"
   end
 
-  should "convert to latex with python2" do
+  it "should convert to latex with python2" do
     RbST.python_path = "/usr/bin/env python2"
     test_string = "Hello ☃".force_encoding("utf-8")
     output = RbST.new(test_string).to_latex(:part => :body)

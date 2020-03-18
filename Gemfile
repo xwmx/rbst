@@ -46,16 +46,4 @@ group :development, :test do
   # https://rubygems.org/gems/rubocop
   # https://github.com/bbatsov/rubocop
   gem 'rubocop'
-
-  gem "shoulda"
-
-  # test-unit
-  #
-  # Test::Unit (test-unit) is unit testing framework for Ruby, based on xUnit
-  # principles.
-  #
-  # https://rubygems.org/gems/test-unit
-  # http://test-unit.github.io/
-  # https://github.com/test-unit/
-  gem 'test-unit'
 end
