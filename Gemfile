@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-source "http://rubygems.org"
+source 'http://rubygems.org'
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"

@@ -6,7 +6,7 @@ begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
   warn e.message
-  warn "Run `bundle install` to install missing gems"
+  warn 'Run `bundle install` to install missing gems'
   exit e.status_code
 end
 require 'rake'
@@ -22,7 +22,7 @@ task default: :test
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+  version = File.exist?('VERSION') ? File.read('VERSION') : ''
 
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "RbST #{version}"

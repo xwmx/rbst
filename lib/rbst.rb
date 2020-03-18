@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class RbST
-  @@python_path = "python"
+  @@python_path = 'python'
   @@executable_path = File.expand_path(
-    File.join(File.dirname(__FILE__), "rst2parts")
+    File.join(File.dirname(__FILE__), 'rst2parts')
   )
   @@executables = {
-    html:  File.join(@@executable_path, "rst2html.py"),
-    latex: File.join(@@executable_path, "rst2latex.py")
+    html:  File.join(@@executable_path, 'rst2html.py'),
+    latex: File.join(@@executable_path, 'rst2latex.py')
   }
 
   # Takes a string or file path plus any additional options and converts the
@@ -33,7 +33,7 @@ class RbST
   # which should contain a full path to the alternative executable.
   def self.executables=(exec_paths = {})
     if exec_paths.empty? || (exec_paths.keys & [:html, :latex]).empty?
-      raise ArgumentError, "Custom executable format must be :html or :latex"
+      raise ArgumentError, 'Custom executable format must be :html or :latex'
     end
 
     @@executables = @@executables.merge(exec_paths)
@@ -107,7 +107,7 @@ class RbST
 
     def execute(command)
       output = ''
-      IO.popen(command, "w+") do |f|
+      IO.popen(command, 'w+') do |f|
         f.puts @target
         f.close_write
         output = f.read
