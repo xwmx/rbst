@@ -5,3 +5,15 @@
 # https://github.com/bbatsov/rubocop#configuration
 
 inherit_from: .rubocop_todo.yml
+
+# TODO: Remove when Rubocop hits version 1.0.
+Style/HashEachMethods:
+  Enabled: true
+
+# TODO: Remove when Rubocop hits version 1.0.
+Style/HashTransformKeys:
+  Enabled: true
+
+# TODO: Remove when Rubocop hits version 1.0.
+Style/HashTransformValues:
+  Enabled: true
