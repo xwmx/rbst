@@ -29,7 +29,7 @@ class TestRbST < Test::Unit::TestCase
     executables = {:html => "/some/path/2html.py"}
     default_executables = RbST.executables
     RbST.executables = executables
-    converter = RbST.new(@file)
+    converter = RbST.new(@rst_file)
     converter \
       .expects(:execute) \
       .with("python #{executables[:html]}") \
