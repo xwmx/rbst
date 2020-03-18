@@ -78,33 +78,33 @@ describe RbST do
     html_with_comment = RbST.convert(".. comment")
     assert_equal(
       html_with_comment,
-      %Q{<div class=\"document\">\n<!-- comment -->\n</div>\n}
+      %Q(<div class=\"document\">\n<!-- comment -->\n</div>\n)
     )
     html_without_comment = RbST.convert(".. comment", 'strip-comments')
     assert_equal(
       html_without_comment,
-      %Q{<div class=\"document\">\n</div>\n}
+      %Q(<div class=\"document\">\n</div>\n)
     )
   end
 
   it "should recognize cloak_email_addresses option" do
     html_with_uncloaked_email = RbST.convert("steve@mac.com")
     assert_equal(
-      %Q{<div class=\"document\">\n<p>} +
-      %Q{<a class=\"reference external\" href=\"mailto:steve&#64;mac.com\">} +
-        %Q{steve&#64;mac.com</a>} +
-      %Q{</p>\n</div>\n},
+      %Q(<div class=\"document\">\n<p>) +
+      %Q(<a class=\"reference external\" href=\"mailto:steve&#64;mac.com\">) +
+        %Q(steve&#64;mac.com</a>) +
+      %Q(</p>\n</div>\n),
       html_with_uncloaked_email
     )
     html_with_cloaked_email = RbST.convert(
       "steve@mac.com", 'cloak-email-addresses'
     )
     assert_equal(
-      %Q{<div class=\"document\">\n<p>} +
-        %Q{<a class=\"reference external\" } +
-        %Q{href=\"mailto:steve&#37;&#52;&#48;mac&#46;com\">} +
-        %Q{steve<span>&#64;</span>mac<span>&#46;</span>com} +
-        %Q{</a></p>\n</div>\n},
+      %Q(<div class=\"document\">\n<p>) +
+        %Q(<a class=\"reference external\" ) +
+        %Q(href=\"mailto:steve&#37;&#52;&#48;mac&#46;com\">) +
+        %Q(steve<span>&#64;</span>mac<span>&#46;</span>com) +
+        %Q(</a></p>\n</div>\n),
       html_with_cloaked_email
     )
   end
@@ -112,12 +112,12 @@ describe RbST do
   it "should recognize part option" do
     html_body = RbST.convert("hello world", :part => :html_body)
     assert_equal(
-      %Q{<div class=\"document\">\n<p>hello world</p>\n</div>\n},
+      %Q(<div class=\"document\">\n<p>hello world</p>\n</div>\n),
       html_body
     )
     fragment = RbST.convert("hello world", :part => :fragment)
     assert_equal(
-      %Q{<p>hello world</p>\n},
+      %Q(<p>hello world</p>\n),
       fragment
     )
   end
@@ -126,7 +126,7 @@ describe RbST do
     test_string = "Hello ☃"
     output = RbST.new(test_string).to_html(:part => :fragment)
     assert_equal(
-      %Q{<p>#{test_string}</p>\n},
+      %Q(<p>#{test_string}</p>\n),
       output
     )
   end
@@ -135,7 +135,7 @@ describe RbST do
     test_string = "Hello ☃"
     output = RbST.new(test_string).to_latex(:part => :body)
     assert_equal(
-      %Q{\n#{test_string}\n},
+      %Q(\n#{test_string}\n),
       output
     )
   end
@@ -156,7 +156,7 @@ describe RbST do
     test_string = "Hello ☃"
     output = RbST.new(test_string).to_html(:part => :fragment)
     assert_equal(
-      %Q{<p>#{test_string}</p>\n},
+      %Q(<p>#{test_string}</p>\n),
       output
     )
     RbST.python_path = "python"
@@ -167,7 +167,7 @@ describe RbST do
     test_string = "Hello ☃"
     output = RbST.new(test_string).to_latex(:part => :body)
     assert_equal(
-      %Q{\n#{test_string}\n},
+      %Q(\n#{test_string}\n),
       output
     )
     RbST.python_path = "python"
@@ -178,7 +178,7 @@ describe RbST do
     test_string = "Hello ☃"
     output = RbST.new(test_string).to_html(:part => :fragment)
     assert_equal(
-      %Q{<p>#{test_string}</p>\n},
+      %Q(<p>#{test_string}</p>\n),
       output
     )
     RbST.python_path = "python"
@@ -189,7 +189,7 @@ describe RbST do
     test_string = "Hello ☃"
     output = RbST.new(test_string).to_latex(:part => :body)
     assert_equal(
-      %Q{\n#{test_string}\n},
+      %Q(\n#{test_string}\n),
       output
     )
     RbST.python_path = "python"

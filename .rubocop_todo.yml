@@ -71,13 +71,6 @@ Style/Documentation:
 Style/HashSyntax:
   EnforcedStyle: hash_rockets
 
-# Offense count: 19
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'test/test_rbst.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
