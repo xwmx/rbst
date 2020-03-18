@@ -92,7 +92,8 @@ class RbST
     # Convert non-hyphenated long options to symbols
     help.gsub!(/(\-\-)([A-Za-z0-9]+)([=|\s])/, ':\2\3')
     # Convert hyphenated long options to quoted strings
-    help.gsub!(/(\-\-)([\w|\-]+)(\n)?[^$|^=|\]]?/, '\'\2\'\3')
+    help.gsub!(/(\-\-)([\w|\-]+)(\n)?[^=|\]]?/, '\'\2\'\3')
+
     # Convert equal signs to hashrocket
     help.gsub!(/\=/, ' => ')
     # Convert short options to symbols
