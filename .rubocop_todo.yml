@@ -26,13 +26,6 @@ Layout/ElseAlignment:
   Exclude:
     - 'lib/rbst.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AllowAdjacentOneLineDefs, NumberOfEmptyLines.
-Layout/EmptyLineBetweenDefs:
-  Exclude:
-    - 'lib/rbst.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.

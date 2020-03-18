@@ -38,6 +38,7 @@ class RbST
 
     @@executables = @@executables.merge(exec_paths)
   end
+
   # Return the executable hash.
   def self.executables; @@executables end
 
@@ -45,6 +46,7 @@ class RbST
   def self.python_path=(path_to_python)
     @@python_path = path_to_python
   end
+
   # Return the python path.
   def self.python_path; @@python_path end
 
