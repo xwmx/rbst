@@ -103,34 +103,34 @@ class RbST
     puts help
   end
 
-protected
+  protected
 
-  def execute(command)
-    output = ''
-    IO.popen(command, "w+") do |f|
-      f.puts @target
-      f.close_write
-      output = f.read
+    def execute(command)
+      output = ''
+      IO.popen(command, "w+") do |f|
+        f.puts @target
+        f.close_write
+        output = f.read
+      end
+      output
     end
-    output
-  end
 
-  def convert_options
-    @options.inject('') do |string, opt|
-      string + if opt.respond_to?(:each_pair)
-                 convert_opts_with_args(opt)
-               elsif opt.to_s.length == 1
-                 " -#{opt}"
-               else
-                 " --#{opt.to_s.gsub(/_/, '-')}"
-               end
+    def convert_options
+      @options.inject('') do |string, opt|
+        string + if opt.respond_to?(:each_pair)
+                   convert_opts_with_args(opt)
+                 elsif opt.to_s.length == 1
+                   " -#{opt}"
+                 else
+                   " --#{opt.to_s.gsub(/_/, '-')}"
+                 end
+      end
     end
-  end
 
-  def convert_opts_with_args(opt)
-    opt.inject('') do |string, (flag, val)|
-      flag = flag.to_s.gsub(/_/, '-')
-      string + (flag.length == 1 ? " -#{flag} #{val}" : " --#{flag}=#{val}")
+    def convert_opts_with_args(opt)
+      opt.inject('') do |string, (flag, val)|
+        flag = flag.to_s.gsub(/_/, '-')
+        string + (flag.length == 1 ? " -#{flag} #{val}" : " --#{flag}=#{val}")
+      end
     end
-  end
 end

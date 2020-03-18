@@ -6,6 +6,27 @@
 
 inherit_from: .rubocop_todo.yml
 
+# Layout/IndentationConsistency
+#
+# Use Rails-style access modifier indentation.
+#
+# Example:
+# ```
+# class Foo
+#   def bar
+#     puts 'bar'
+#   end
+#
+#   private
+#
+#     def baz
+#       puts 'baz'
+#     end
+# end
+# ```
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
 # Prefer `alias_method`
 #
 # This is debated and a nuanced issue. More infomation:
