@@ -35,6 +35,7 @@ class RbST
     if exec_paths.empty? || (exec_paths.keys & [:html, :latex]).empty?
       raise ArgumentError, "Custom executable format must be :html or :latex"
     end
+
     @@executables = @@executables.merge(exec_paths)
   end
   # Return the executable hash.
