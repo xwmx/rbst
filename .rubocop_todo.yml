@@ -128,13 +128,6 @@ Style/RescueModifier:
   Exclude:
     - 'lib/rbst.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AllowIfMethodIsEmpty.
-Style/SingleLineMethods:
-  Exclude:
-    - 'lib/rbst.rb'
-
 # Offense count: 75
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.

@@ -40,7 +40,9 @@ class RbST
   end
 
   # Return the executable hash.
-  def self.executables; @@executables end
+  def self.executables
+    @@executables
+  end
 
   # Specify a python path or executable.
   def self.python_path=(path_to_python)
@@ -48,7 +50,9 @@ class RbST
   end
 
   # Return the python path.
-  def self.python_path; @@python_path end
+  def self.python_path
+    @@python_path
+  end
 
   # Takes a string or file path plus any additional options and creates a new
   # converter object.
