@@ -94,14 +94,6 @@ Style/Documentation:
     - 'test/**/*'
     - 'lib/rbst.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/Encoding:
-  Exclude:
-    - 'Rakefile'
-    - 'lib/rbst.rb'
-    - 'test/test_rbst.rb'
-
 # Offense count: 13
 # Cop supports --auto-correct.
 # Configuration parameters: UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
