@@ -1,14 +1,14 @@
-# -*- encoding: utf-8 -*-
+# frozen_string_literal: true
 
 Gem::Specification.new do |s|
-  s.name = "RbST"
-  s.version = "0.5.1"
-
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["William Melody"]
-  s.date = "2015-02-08"
+  s.name = 'RbST'
+  s.version = '0.5.1'
+  s.licenses = ['MIT']
+  s.summary = "A simple Ruby wrapper for processing reStructuredText via Python's Docutils"
   s.description = "A simple Ruby wrapper for processing reStructuredText via Python's Docutils"
-  s.email = "hi@williammelody.com"
+  s.authors = ['William Melody']
+  s.email = 'hi@williammelody.com'
+  s.date = '2015-02-08'
   s.extra_rdoc_files = [
     "LICENSE",
     "README.markdown"
@@ -33,32 +33,11 @@ Gem::Specification.new do |s|
     "test/test_rbst.rb"
   ]
   s.homepage = "http://github.com/xwmx/rbst"
-  s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
-  s.summary = "A simple Ruby wrapper for processing reStructuredText via Python's Docutils"
-
-  if s.respond_to? :specification_version then
-    s.specification_version = 3
-
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency('mocha', '~> 1.1', '> 1.1.0')
-      s.add_development_dependency('rake', '~> 10.4', '>= 10.4.2')
-      s.add_development_dependency('rdoc', '~> 4.2', '>= 4.2.0')
-      s.add_development_dependency('shoulda', '~> 3.5', '>= 3.5.0')
-      s.add_development_dependency('test-unit', '~> 3.0', '>= 3.0.9')
-    else
-      s.add_dependency(%q<mocha>, ["~> 1.1.0"])
-      s.add_dependency(%q<rake>, ["~> 10.4.2"])
-      s.add_dependency(%q<rdoc>, ["~> 4.2.0"])
-      s.add_dependency(%q<shoulda>, ["~> 3.5.0"])
-      s.add_dependency(%q<test-unit>, ["~> 3.0.9"])
-    end
-  else
-    s.add_dependency(%q<mocha>, ["~> 1.1.0"])
-    s.add_dependency(%q<rake>, ["~> 10.4.2"])
-    s.add_dependency(%q<rdoc>, ["~> 4.2.0"])
-    s.add_dependency(%q<shoulda>, ["~> 3.5.0"])
-    s.add_dependency(%q<test-unit>, ["~> 3.0.9"])
-  end
+  s.require_paths = ['lib']
+  s.add_development_dependency('mocha',     '~> 1',   '>= 0')
+  s.add_development_dependency('rake',      '~> 12',  '>= 12.3.3')
+  s.add_development_dependency('rdoc',      '~> 6',   '>= 0')
+  s.add_development_dependency('shoulda',   '~> 3.5.0')
+  s.add_development_dependency('test-unit', '~> 3',   '>= 0')
+  s.required_ruby_version = '>= 2.3'
 end
