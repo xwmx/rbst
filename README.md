@@ -99,4 +99,4 @@ For more information on reStructuredText, see the
 
 ## Copyright
 
-Copyright (c) 2009-2015 William Melody. See LICENSE for details.
+Copyright (c) 2009 William Melody. See LICENSE for details.
