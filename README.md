@@ -1,12 +1,14 @@
 # RbST
 
-A Ruby wrapper for processing reStructuredText via Python's Docutils.
+A Ruby wrapper for processing
+[reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText) via Python's
+[Docutils](https://pypi.org/project/docutils/).
 
 ## Installation
 
 Python 2.3+ (or 3.3+) is required.
 
-RbST is available on [RubyGems.org](http://gemcutter.org/gems/RbST).
+RbST is available on [RubyGems.org](https://rubygems.org/gems/RbST).
 
 ```bash
 gem install RbST
