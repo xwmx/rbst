@@ -4,8 +4,8 @@ Gem::Specification.new do |s|
   s.name = 'RbST'
   s.version = '0.6.0'
   s.licenses = ['MIT']
-  s.summary = "A simple Ruby wrapper for processing reStructuredText via Python's Docutils"
-  s.description = "A simple Ruby wrapper for processing reStructuredText via Python's Docutils"
+  s.summary = "A Ruby wrapper for processing reStructuredText via Python's Docutils"
+  s.description = "A Ruby wrapper for processing reStructuredText via Python's Docutils"
   s.authors = ['William Melody']
   s.email = 'hi@williammelody.com'
   s.date = '2020-03-18'
