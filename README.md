@@ -1,6 +1,6 @@
 # RbST
 
-A Ruby wrapper for processing
+A Ruby gem for processing
 [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText) via Python's
 [Docutils](https://pypi.org/project/docutils/).
 
