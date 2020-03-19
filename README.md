@@ -1,6 +1,6 @@
 # RbST
 
-A simple Ruby wrapper for processing reStructuredText via Python's Docutils.
+A Ruby wrapper for processing reStructuredText via Python's Docutils.
 
 ## Installation
 
