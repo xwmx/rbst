@@ -8,11 +8,19 @@ A Ruby gem for processing
 
 Python 2.3+ (or 3.3+) is required.
 
-RbST is available on [RubyGems.org](https://rubygems.org/gems/RbST).
+RbST is available on [RubyGems](https://rubygems.org/gems/RbST):
 
 ```bash
 gem install RbST
 ```
+
+To install with [Bundler](https://bundler.io/), add the following to your Gemfile:
+
+```ruby
+gem 'RbST'
+```
+
+Then run `bundle install`
 
 ## Usage
 
