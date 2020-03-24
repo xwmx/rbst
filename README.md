@@ -47,6 +47,7 @@ You can also use the `convert` class method to output HTML:
 
 ```ruby
 puts RbST.convert('*hello*')
+#=> "<div class=\"document\">\n<p><em>hello</em></p>\n</div>\n"
 ```
 
 Arguments can be passed to `#to_html`, `#to_latex`, `new` or `convert`,
