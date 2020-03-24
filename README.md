@@ -26,18 +26,27 @@ Then run `bundle install`
 
 ```ruby
 require 'rbst'
-@html = RbST.new('/some/file.rst').to_html
-# or
 @latex = RbST.new('*hello*').to_latex
 ```
 
-This takes the reStructuredText formatted file and converts it to either HTML
-or LaTeX. The first argument can be either a file or a string.
+This takes the reStructuredText formatted string and converts it to LaTeX.
+
+The first argument can be either a string or an array of one or more file
+paths. The files will be concatenated together with a blank line between
+each and used as input.
+
+```ruby
+# One file path as a single-element array.
+RbST.new(['/path/to/file.rst']).to_html
+
+# Multiple file paths as an array.
+RbST.new(['/path/to/file1.rst', '/path/to/file2.rst']).to_html
+```
 
 You can also use the `convert` class method to output HTML:
 
 ```ruby
-puts RbST.convert('/some/file.rst')
+puts RbST.convert('*hello*')
 ```
 
 Arguments can be passed to `#to_html`, `#to_latex`, `new` or `convert`,

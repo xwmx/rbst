@@ -54,11 +54,19 @@ class RbST
     @@python_path
   end
 
-  # Takes a string or file path plus any additional options and creates a new
-  # converter object.
+  # Takes a string or array of file paths plus any additional options and
+  # creates a new converter object.
   def initialize(*args)
     target = args.shift
-    @target = File.exist?(target) ? File.read(target) : target rescue target
+    if target.is_a?(String)
+      @target = target
+    elsif target.is_a?(Array)
+      @target = ''
+      target.each_with_index do |path, i|
+        @target += "\n" if i.positive?
+        @target += File.exist?(path) ? File.read(path) : path rescue path
+      end
+    end
     @options = args
   end
 

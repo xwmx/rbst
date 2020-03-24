@@ -16,7 +16,7 @@ describe RbST do
   end
 
   it 'should call bare rest2parts when passed no options' do
-    converter = RbST.new(@rst_file)
+    converter = RbST.new([@rst_file])
     converter \
       .expects(:execute) \
       .with("python #{@rst2parts_path}/rst2html.py") \
@@ -28,7 +28,7 @@ describe RbST do
     executables = { html: '/some/path/2html.py' }
     default_executables = RbST.executables
     RbST.executables = executables
-    converter = RbST.new(@rst_file)
+    converter = RbST.new([@rst_file])
     converter \
       .expects(:execute) \
       .with("python #{executables[:html]}") \
@@ -48,7 +48,7 @@ describe RbST do
   end
 
   it 'should convert ReST to html' do
-    html = RbST.new(@rst_file).to_html
+    html = RbST.new([@rst_file]).to_html
     assert_equal(
       File.read(@html_file),
       html
@@ -56,7 +56,7 @@ describe RbST do
   end
 
   it 'should convert ReST to LaTeX' do
-    latex = RbST.new(@rst_file).to_latex
+    latex = RbST.new([@rst_file]).to_latex
     assert_equal(
       File.read(@latex_file),
       latex
@@ -65,7 +65,7 @@ describe RbST do
 
   [:html, :latex].each do |f|
     it "should accept options on #to_#{f}" do
-      converter = RbST.new(@rst_file)
+      converter = RbST.new([@rst_file])
       converter \
         .expects(:execute) \
         .with("python #{@rst2parts_path}/rst2#{f}.py --raw-enabled") \
@@ -140,9 +140,17 @@ describe RbST do
     )
   end
 
+  it 'should preserve file paths in strings without array' do
+    output = RbST.new(@rst_file).to_html(part: :fragment)
+    assert_equal(
+      %|<p>#{@rst_file}</p>\n|,
+      output
+    )
+  end
+
   it 'should execute with custom python path' do
     RbST.python_path = '/usr/bin/env python3'
-    converter = RbST.new(@rst_file)
+    converter = RbST.new([@rst_file])
     converter \
       .expects(:execute) \
       .with("/usr/bin/env python3 #{@rst2parts_path}/rst2html.py") \
