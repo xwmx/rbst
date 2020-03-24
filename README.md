@@ -54,7 +54,7 @@ accepting symbols or strings for options without arguments and hashes of
 strings or symbols for options with arguments.
 
 ```ruby
-puts RbST.new(".. a comment").to_html('strip-comments')
+puts RbST.new('.. a comment').to_html('strip-comments')
 # => '<div class="document">\n</div>'
 ```
 
@@ -62,14 +62,14 @@ Options passed as string use hyphens while symbols use underscores. For
 instance, the above could also be written as:
 
 ```ruby
-puts RbST.new(".. a comment").to_html(:strip_comments)
+puts RbST.new('.. a comment').to_html(:strip_comments)
 # => '<div class="document">\n</div>'
 ```
 
 Document parts can also be specified with the `:parts` option.
 
 ```ruby
-puts RbST.new("hello world").to_html(:part => :fragment)
+puts RbST.new('hello world').to_html(:part => :fragment)
 # => '<p>hello world</p>'
 ```
 
@@ -85,21 +85,21 @@ path to the custom script for the format by passing a hash to the
 `RbST.executables=` method:
 
 ```ruby
-RbST.executables = {:html => "/some/other/path/2html.py"}
+RbST.executables = {:html => '/some/other/path/2html.py'}
 
 # uses custom executable for outputting html
-RbST.new("something").to_html
+RbST.new('*hello*').to_html
 
 # uses default executable for latex since a custom one wasn't specified
-RbST.new("something else").to_latex
+RbST.new('*hello*').to_latex
 ```
 
 Similarly, if you want to explicitly specify which python executable to
 use, set the path with the `RbST.python_path=` method:
 
 ```ruby
-RbST.python_path = "/usr/bin/env python3"
-RbST.new("something").to_latex
+RbST.python_path = '/usr/bin/env python3'
+RbST.new('*hello*').to_latex
 ```
 
 For more information on reStructuredText, see the
