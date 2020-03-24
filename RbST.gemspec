@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'RbST'
-  s.version = '0.6.3'
+  s.version = '0.6.4'
   s.licenses = ['MIT']
   s.summary = "A Ruby gem for processing reStructuredText via Python's Docutils."
   s.description = "A Ruby gem for processing reStructuredText via Python's Docutils."
