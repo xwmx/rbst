@@ -64,7 +64,11 @@ class RbST
       @target = ''
       target.each_with_index do |path, i|
         @target += "\n" if i.positive?
-        @target += File.exist?(path) ? File.read(path) : path rescue path
+        @target += begin
+                     File.exist?(path) ? File.read(path) : path
+                   rescue StandardError
+                     path
+                   end
       end
     end
     @options = args
