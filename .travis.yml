@@ -1,9 +1,6 @@
-addons:
-  apt:
-    packages:
-      - python-docutils
 before_install:
   - gem install bundler
+  - pip3 install docutils
 dist: bionic
 language: ruby
 rvm:
