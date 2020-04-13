@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/xwmx/rbst.svg?branch=master)](https://travis-ci.org/xwmx/rbst)
+
 # RbST
 
 A Ruby gem for processing
