@@ -1,6 +1,6 @@
 before_install:
   - gem install bundler
-  - pip3 install docutils
+  - pip install docutils
 dist: bionic
 language: ruby
 rvm:
