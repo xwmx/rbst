@@ -1,5 +1,10 @@
+addons:
+  apt:
+    packages:
+      - python3.8
 before_install:
   - gem install bundler
+  - pip3 install docutils
   - pip install docutils
 dist: bionic
 language: ruby
