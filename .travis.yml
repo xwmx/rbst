@@ -1,3 +1,7 @@
+addons:
+  apt:
+    packages:
+      - python-docutils
 before_install:
   - gem install bundler
 dist: bionic
