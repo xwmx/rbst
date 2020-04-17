@@ -2,13 +2,13 @@
 
 Gem::Specification.new do |s|
   s.name = 'RbST'
-  s.version = '0.6.4'
+  s.version = '0.6.5'
   s.licenses = ['MIT']
   s.summary = "A Ruby gem for processing reStructuredText via Python's Docutils."
   s.description = "A Ruby gem for processing reStructuredText via Python's Docutils."
   s.authors = ['William Melody']
   s.email = 'hi@williammelody.com'
-  s.date = '2020-03-24'
+  s.date = '2020-04-16'
   s.extra_rdoc_files = [
     'LICENSE',
     'README.md'
