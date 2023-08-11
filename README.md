@@ -1,6 +1,7 @@
 # RbST
 
-[![Build Status](https://travis-ci.org/xwmx/rbst.svg?branch=master)](https://travis-ci.org/xwmx/rbst)
+[![Gem Version](https://img.shields.io/gem/v/RbST)](http://rubygems.org/gems/RbST)
+[![Gem Downloads](https://img.shields.io/gem/dt/RbST)](http://rubygems.org/gems/RbST)
 
 A Ruby gem for processing
 [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText) via Python's
